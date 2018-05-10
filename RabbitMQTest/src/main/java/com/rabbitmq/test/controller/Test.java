@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class Test {
+public class Test
+{
     @Autowired
     RabbitTemplate rabbitTemplate;
 
-    @RequestMapping(value = "/test/{abc}",method = RequestMethod.GET)
-    public String test(@PathVariable(value = "abc") String abc){
+    @RequestMapping(value = "/test/{abc}", method = RequestMethod.GET)
+    public String test(@PathVariable(value = "abc") String abc)
+    {
         rabbitTemplate.convertAndSend("spring-boot", abc + " from RabbitMQ!");
-        return  "abc";
+        return "abc";
     }
 }
