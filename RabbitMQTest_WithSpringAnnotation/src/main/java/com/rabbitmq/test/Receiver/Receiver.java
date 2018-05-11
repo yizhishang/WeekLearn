@@ -11,12 +11,13 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@RabbitListener(containerFactory = "helloRabbitListenerContainer",queues = "spring-boot")
-public class Receiver {
+@RabbitListener(containerFactory = "helloRabbitListenerContainer", queues = "spring-boot")
+public class Receiver
+{
     @RabbitHandler
-    public void receiveTeacher(Teacher teacher) {
-
-        log.info("##### = {}",teacher);
+    public void receiveTeacher(Teacher teacher)
+    {
+        log.info("##### = {}", teacher);
     }
 
 }

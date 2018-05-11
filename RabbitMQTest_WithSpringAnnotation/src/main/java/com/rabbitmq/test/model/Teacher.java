@@ -11,10 +11,12 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @ToString
-public class Teacher {
+public class Teacher
+{
     private String teacherName;
 
-    public Teacher(String teacherName){
+    public Teacher(String teacherName)
+    {
         this.teacherName = teacherName;
     }
 }

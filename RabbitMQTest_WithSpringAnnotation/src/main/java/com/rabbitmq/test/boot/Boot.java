@@ -11,11 +11,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 
 @EnableAutoConfiguration
-@ComponentScan(basePackages = { "com.rabbitmq.*" })
-@EntityScan(basePackages = { "com.rabbitmq.*" })
-@EnableJpaRepositories(basePackages = { "com.rabbitmq.*" })
-public class Boot {
-    public static void main(String[] args) throws Exception {
+@ComponentScan(basePackages = {"com.rabbitmq.*"})
+@EntityScan(basePackages = {"com.rabbitmq.*"})
+@EnableJpaRepositories(basePackages = {"com.rabbitmq.*"})
+public class Boot
+{
+    public static void main(String[] args) throws Exception
+    {
         SpringApplication.run(Boot.class, args);
     }
 }

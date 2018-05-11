@@ -12,14 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class Test {
+public class Test
+{
 
     @Autowired
     RabbitTemplate rabbitTemplate;
 
-    @RequestMapping(value = "/testTeacher",method = RequestMethod.GET)
-    public String testTeacher(){
+    @RequestMapping(value = "/testTeacher", method = RequestMethod.GET)
+    public String testTeacher()
+    {
         rabbitTemplate.convertAndSend("spring-boot", new Teacher("teacherName"));
-        return  "teacherok";
+        return "teacherok";
     }
 }
