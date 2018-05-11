@@ -12,3 +12,12 @@ spring:
             hibernate.globally_quoted_identifiers: true
             hibernate.show_sql: false
             hibernate.format_sql: true
+
+    # 增加rabbitmq的连接信息
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: springcloud
+        password: springcloud
+        queueName: spring-boot
+        exchange: spring-boot-exchange

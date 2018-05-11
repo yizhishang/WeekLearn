@@ -1,8 +1,6 @@
 package com.rabbitmq.test.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * Created by wuhuachuan on 16/3/30.

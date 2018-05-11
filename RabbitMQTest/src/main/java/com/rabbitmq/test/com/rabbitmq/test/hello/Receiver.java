@@ -8,7 +8,7 @@ import java.util.concurrent.CountDownLatch;
 public class Receiver
 {
 
-    private CountDownLatch latch = new CountDownLatch(1);
+    private CountDownLatch latch = new CountDownLatch(2);
 
     public void receiveMessage(String message)
     {

@@ -10,6 +10,7 @@ import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,7 +23,25 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfig
 {
 
-    final static String queueName = "spring-boot";
+    @Value("${spring.rabbitmq.queueName}")
+    private String queueName;
+
+    @Value("${spring.rabbitmq.exchange}")
+    private String exchange;
+
+
+
+    @Value("${spring.rabbitmq.host}")
+    private String host;
+
+    @Value("${spring.rabbitmq.port}")
+    private int port;
+
+    @Value("${spring.rabbitmq.username}")
+    private String userName;
+
+    @Value("${spring.rabbitmq.password}")
+    private String password;
 
     @Bean
     Queue queue()
@@ -33,7 +52,7 @@ public class RabbitMQConfig
     @Bean
     TopicExchange exchange()
     {
-        return new TopicExchange("spring-boot-exchange");
+        return new TopicExchange(exchange);
     }
 
     @Bean
@@ -45,9 +64,9 @@ public class RabbitMQConfig
     @Bean
     ConnectionFactory connectionFactory()
     {
-        CachingConnectionFactory connectionFactory = new CachingConnectionFactory("192.168.0.108", 5672);
-        connectionFactory.setUsername("springcloud");
-        connectionFactory.setPassword("springcloud");
+        CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host, port);
+        connectionFactory.setUsername(userName);
+        connectionFactory.setPassword(password);
 //        connectionFactory.setVirtualHost(vhost);
         connectionFactory.setPublisherConfirms(true); // enable confirm mode
         return connectionFactory;
